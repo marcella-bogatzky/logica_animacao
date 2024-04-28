@@ -1,0 +1,20 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas') 
+    var pincel = tela.getContext('2d')
+
+    function triangulo(xi, yi, xf, yf, cor) {
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.moveTo(xi,yi);
+        pincel.lineTo(xi,yf);
+        pincel.lineTo(xf,yf);
+        pincel.fill();
+    }
+
+    triangulo(50,50,400,400,'black');
+    triangulo(100,175,275,350,'white');
+
+</script>

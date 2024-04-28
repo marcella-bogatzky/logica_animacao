@@ -1,0 +1,39 @@
+<h2>Aula 01 - Desenhando gráficos com Canvas</h2>
+
+<!--<canvas></canvas> é uma TAG para desenho - Canvas é "tela" em inglês
+"width" define a largura da minha tela
+"height" define a altura da minha tela-->
+
+<canvas width="600" height="400"></canvas>
+<script>
+    
+    var tela = document.querySelector('canvas') //querySelector "puxa" para o JS uma tag do mundo HTLM
+    var pincel = tela.getContext('2d') //getContext vai definir o contexto do meu desenho dentro do mundo digital (2D, 3D, etc)
+
+    pincel.fillStyle = 'lightgray' //style corresponde ao estilo de preenchimento, cor
+    pincel.fillRect(0, 0, 600, 400); //fill é preencher e Rect é retangulo. Dentro do parênteses vai a instrução de onde na tela, utilizando plano cartesiano, o desenho deve começar e o tamanho dele
+    // Sendo assim, a instrução no parênteses deve ser (coord x, coord y, largura, altura)
+     
+    // Construindo a bandeira da itália:
+    pincel.fillStyle = 'green';
+    pincel.fillRect(0,0,200,400);
+    
+    pincel.fillStyle = 'red';
+    pincel.fillRect(400,0,200,400);
+
+    // Construindo um triângulo
+    pincel.fillStyle = 'yellow';
+    pincel.beginPath();//Para construir um triângulo, eu preciso "começar um caminho" - begin path
+    pincel.moveTo(300,200) //Mova-se a partir desse ponto
+    pincel.lineTo(200, 400) //Mova-se até esse ponto
+    pincel.lineTo(400,400);
+    pincel.fill(); //Preencher o caminho traçado acima
+
+    // Construindo um círculo
+    pincel.fillStyle = 'blue';
+    pincel.beginPath();
+    pincel.arc(300, 200, 50, 0, 2 * 3.14) // (coord x, coord y, raio, início do angulo, fim do ângulo, pi)
+    pincel.fill();
+
+    // Esses comandos que estamos utilizando são bibliotecas do JS (API). Para descobri mais comandos, basta pesquisar a documentação da linguagem
+</script>

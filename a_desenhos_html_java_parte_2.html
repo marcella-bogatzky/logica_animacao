@@ -1,0 +1,79 @@
+<h2>Aula 02 - Extraindo funções </h2>
+
+<canvas width="600" height="800"></canvas>
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'green';
+    pincel.fillRect(0,0,50,50);
+    pincel.fillStroke = 'black' // "chama" o contorno - a cor é sempre preta
+    pincel.strokeRect(0,0,50,50) // da as coordenadas do contorno
+
+    pincel.fillRect(50,0,50,50);
+    pincel.strokeStyle = "red" // altera a cor do contorno
+    pincel.strokeRect(50,0,50,50);     
+
+    pincel.fillRect(100,0,50,50);
+    pincel.strokeRect(100,0,50,50)
+    
+    // É possível colocar os comandos de um denho detro de uma função:
+
+    function quadradoLaranja(x) { // o X servirá para ao chamar a função, a gente consiga determinar onde o desenho irá aparecer
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle = 'orange';
+        pincel.fillRect(x,100,50,50); // esse X será substituído no momento de chamar a função
+        pincel.fillStroke = 'black';
+        pincel.strokeStyle = "black"
+        pincel.strokeRect(x,100,50,50); // esse X será substituído no momento de chamar a função
+    }  
+
+    quadradoLaranja(0);
+    quadradoLaranja(50);
+    quadradoLaranja(100);
+
+    function quadradoVermelho(x, y) {
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle = 'red';
+        pincel.fillRect(x,y,50,50); 
+        pincel.fillStroke = 'black';
+        pincel.strokeRect(x,y,50,50); 
+    }  
+
+    quadradoVermelho(0,200);
+    quadradoVermelho(0,250);
+    quadradoVermelho(0,300);
+
+    function desenhaQuadrado(x, y, cor) {
+        pincel.fillStyle = cor;
+        pincel.fillRect(x,y,50,50); 
+        pincel.fillStroke = 'black';
+        pincel.strokeRect(x,y,50,50);
+    }
+
+    desenhaQuadrado(0,400,'yellow');
+    desenhaQuadrado(50,450,'pink');
+    desenhaQuadrado(100,400,'gray');
+
+    // É possível colocar os comandos de um denho detro de uma repetição:
+
+    var x = 0
+    while(x<600) {
+        desenhaQuadrado(x, 550, 'green');
+        desenhaQuadrado(x, 600, 'red');
+        x = x + 50 // para aproximar o valor de x de 600 a cada quadrado criado
+    }
+
+    // É possível criar a mesma repetição utilizando o comando "for"
+
+    for(var x = 0; x < 600; x = x + 50) {
+        desenhaQuadrado(x, 700, 'blue');
+        desenhaQuadrado(x, 750, 'yellow');
+    }
+
+</script>

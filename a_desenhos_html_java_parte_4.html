@@ -1,0 +1,61 @@
+<h2>Aula 03 - Interagindo com o usuário </h2>
+
+<!--FECHAR OS ESTUDOS AQUI PARA NÃO DAR INTERFERÊNCIA NO PRÓXMO
+EXIBINDO ALERTA QUE MOSTRA O EIXO DO CLIQUE 
+
+<canvas width="600" height="800"></canvas>
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'gray';
+    pincel.fillRect(0,0,600,400);
+
+    function Alerta(evento) {
+        
+        var x = evento.pageX - tela.offsetLeft; //"pageX" registra o eixo x indicado
+        var y = evento.pageY - tela.offsetTop; //"pageY" registra o eixo y indicado
+        //"tela.offsetLeft/Top" está sendo usado para descontar do eixo os cantinhos da tela não contabilizados no canva
+
+        alert(x + ',' + y); //alert vai exibir os eixos registrados
+        console.log(evento);
+    }
+
+    tela.onclick = Alerta;
+
+</script>
+-->
+
+<!--FECHAR OS ESTUDOS AQUI PARA NÃO DAR INTERFERÊNCIA NO PRÓXMO
+EXIBINDO BOLINHAS NO CLIQUE -->
+
+<canvas width="600" height="800"></canvas>
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'gray';
+    pincel.fillRect(0,0,600,400);
+
+    function exibeCirculo(evento) {
+        
+        var x = evento.pageX - tela.offsetLeft; //"pageX" registra o eixo x indicado
+        var y = evento.pageY - tela.offsetTop; //"pageY" registra o eixo y indicado
+        //"tela.offsetLeft/Top" está sendo usado para descontar do eixo os cantinhos da tela não contabilizados no canva
+
+        pincel.fillStyle = 'blue';
+        pincel.beginPath();
+        pincel.arc(x, y, 10, 0, 2 * 3.14);
+        pincel.fill();
+
+        console.log(x + ',' + y); //demonstra os eixos registrados
+    }
+
+    tela.onclick = exibeCirculo;
+
+</script>
+
+
+
